@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS accounts (
+	id serial NOT NULL PRIMARY KEY,
+	username VARCHAR(32) NOT NULL,
+	balance NUMERIC(12,0) DEFAULT 0 NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW() NOT NULL ,
+  updated_at TIMESTAMP DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS basic_transactions (
+  transaction_key BIGINT NOT NULL PRIMARY KEY,
+	transaction_type SMALLINT NOT NULL,
+	origin INTEGER NOT NULL,
+  destination INTEGER DEFAULT NULL,
+  destination_desc TEXT DEFAULT NULL,
+  is_valid SMALLINT NOT NULL DEFAULT 1,
+  created_at TIMESTAMP DEFAULT NOW() NOT NULL,
+  updated_at TIMESTAMP DEFAULT NULL
+);
